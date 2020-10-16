@@ -14,7 +14,7 @@ namespace addressbook_web_tests
         public AccountData(string username, string password)
         {
             this.username = username;
-            this.password = password:
+            this.password = password;
         }
         public string Username
         {

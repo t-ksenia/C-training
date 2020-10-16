@@ -23,7 +23,7 @@ namespace addressbook_web_tests
             }
             set
             {
-                size = value:
+                size = value;
             }
         }
      
