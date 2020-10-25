@@ -1,24 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="addressbook_web_tests.TestBase" Collapsed="true">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+  <Class Name="addressbook_web_tests.TestBase">
+    <Position X="1.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICAAQAIAAABABAQAAAAADAAAABEAAAAAAQAABAAKA=</HashCode>
+      <HashCode>AAAEAAQAIAAAAAAAAAAAAATAAAAAAAAAABAAAAAAACA=</HashCode>
       <FileName>TestBase.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="loginHelper" />
+      <Field Name="navigator" />
+      <Field Name="groupHelper" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="addressbook_web_tests.GroupCreationTests">
-    <Position X="0.5" Y="2.25" Width="1.5" />
+  <Class Name="addressbook_web_tests.GroupCreationTests" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GroupCreationTests.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="addressbook_web_tests.GroupRemovalTests">
-    <Position X="2.5" Y="2.25" Width="1.5" />
+  <Class Name="addressbook_web_tests.GroupRemovalTests" Collapsed="true">
+    <Position X="3.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GroupRemovalTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="addressbook_web_tests.GroupHelper" Collapsed="true">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAABAAAQAAAAAAAAAABEAAAAAAAAABAAAA=</HashCode>
+      <FileName>GroupHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="addressbook_web_tests.LoginHelper" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>LoginHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="addressbook_web_tests.NavigationHelper" Collapsed="true">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKA=</HashCode>
+      <FileName>NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="addressbook_web_tests.HelperBase" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HelperBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
