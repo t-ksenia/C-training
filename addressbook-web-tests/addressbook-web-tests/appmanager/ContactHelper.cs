@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -31,7 +33,7 @@ namespace addressbook_web_tests
             manager.Navigator.GoToHomePage();
             SelectContact(q);
             RemoveContact();
-            manager.Navigator.GoToHomePage();
+            ReturnToHomePage();
             return this;
         }
         public ContactHelper SubmitContactCreation()
@@ -75,9 +77,20 @@ namespace addressbook_web_tests
         public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
             return this;
         }
 
+        private string CloseAlertAndGetItsText()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ContactHelper ReturnToHomePage()
+        {
+            driver.FindElement(By.LinkText("home")).Click();
+            return this;
+        }
     }
 }
 

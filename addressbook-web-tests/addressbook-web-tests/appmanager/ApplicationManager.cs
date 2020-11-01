@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -13,6 +14,7 @@ namespace addressbook_web_tests
     {
         protected IWebDriver driver;
         protected string baseURL;
+        protected bool acceptNextAlert = true;
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
@@ -38,16 +40,65 @@ namespace addressbook_web_tests
 
         public void Stop()
         {
+            {
+                try
+                {
+                    driver.Quit();
+                }
+                catch (Exception)
+                {
+                    // Ignore errors if unable to close the browser
+                }
+                Assert.AreEqual("", VerificationErrors.ToString());
+            }
+
+        }
+        public bool IsElementPresent(By by)
+        {
             try
             {
-                driver.Quit();
+                driver.FindElement(by);
+                return true;
             }
-            catch (Exception)
+            catch (NoSuchElementException)
             {
-                // Ignore errors if unable to close the browser
+                return false;
             }
         }
+        public bool IsAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (NoAlertPresentException)
+            {
+                return false;
+            }
+        }
+        public string CloseAlertAndGetItsText()
+        {
+            try
+            {
+                IAlert alert = driver.SwitchTo().Alert();
+                string alertText = alert.Text;
+                if (acceptNextAlert)
+                {
+                    alert.Accept();
+                }
+                else
+                {
+                    alert.Dismiss();
+                }
+                return alertText;
+            }
+            finally
+            {
+                acceptNextAlert = true;
+            }
 
+        }
         public LoginHelper Auth
         {
             get
@@ -79,5 +130,7 @@ namespace addressbook_web_tests
                 return contactHelper;
             }
         }
+
+        public object VerificationErrors { get; private set; }
     }
 }

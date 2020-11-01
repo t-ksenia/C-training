@@ -12,11 +12,15 @@ namespace addressbook_web_tests.Tests
 {
     public class ContactRemovalTests : TestBase
     {
+
         [Test]
-        public void ContactRemovalTest()
+        public void RemoveContactTest()
+
         {
-            app.Contacts.Remove(1);
+            app.Contacts.Remove(2);
+
         }
+
 
 
 
