@@ -26,14 +26,22 @@ namespace addressbook_web_tests
             manager.Navigator.GoToHomePage();
             return this;
         }
-
-        private void SubmitContactCreation()
+        public ContactHelper Remove(int q)
+        {
+            manager.Navigator.GoToHomePage();
+            SelectContact(q);
+            RemoveContact();
+            manager.Navigator.GoToHomePage();
+            return this;
+        }
+        public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            return this;
         }
 
 
-        private void FillContactForm(ContactData group)
+        public ContactHelper FillContactForm(ContactData group)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -51,14 +59,25 @@ namespace addressbook_web_tests
             driver.FindElement(By.Name("email")).Click();
             driver.FindElement(By.Name("email")).Clear();
             driver.FindElement(By.Name("email")).SendKeys(group.Email);
+            return this;
         }
 
-        private void InitContactCreation()
+        public ContactHelper InitContactCreation()
         {
             driver.FindElement(By.LinkText("add new")).Click();
+            return this;
+        }
+        public ContactHelper SelectContact(int index)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            return this;
+        }
+        public ContactHelper RemoveContact()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            return this;
         }
 
-        
     }
 }
 
