@@ -50,7 +50,10 @@ namespace addressbook_web_tests
         {
             if ( ! app.IsValueCreated )
             {
-                app.Value = new ApplicationManager();
+                ApplicationManager newInstance = new ApplicationManager();
+                newInstance.Navigator.GoToHomePage();
+                app.Value = newInstance;
+                
             }
             return app.Value;
          }
@@ -64,18 +67,7 @@ namespace addressbook_web_tests
         }
 
          
-        public bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
+        
         public bool IsAlertPresent()
         {
             try
