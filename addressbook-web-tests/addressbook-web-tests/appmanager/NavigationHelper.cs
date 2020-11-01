@@ -24,6 +24,11 @@ namespace addressbook_web_tests
             driver.Navigate().GoToUrl(baseURL);
         }
 
+
+        public void GoToAddNewContact()
+        {
+            driver.FindElement(By.Id("header")).Click();
+        }
         public void GoToGroupsPage()
         {
             driver.FindElement(By.LinkText("groups")).Click();

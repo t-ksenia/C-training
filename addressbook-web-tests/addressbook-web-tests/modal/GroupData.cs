@@ -50,5 +50,7 @@ namespace addressbook_web_tests
                 footer = value;
             }
         }
+
+        public string Address { get; internal set; }
     }
 }

@@ -34,7 +34,7 @@ namespace addressbook_web_tests
             Selectgroup(v);
             InitGroupModification();
             FillGroupForm(newData);
-            SubmitGroupModofication();
+            SubmitGroupModification();
             ReturnToGroupPage();
             return this;
         }
@@ -95,7 +95,7 @@ namespace addressbook_web_tests
             driver.FindElement(By.XPath("(//input[@name='delete'])[2]")).Click();
             return this;
         }
-        public GroupHelper SubmitGroupModofication()
+        public GroupHelper SubmitGroupModification()
         {
             driver.FindElement(By.Name("update")).Click();
             return this;
