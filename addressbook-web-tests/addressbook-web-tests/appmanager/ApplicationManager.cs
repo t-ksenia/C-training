@@ -49,7 +49,7 @@ namespace addressbook_web_tests
                 {
                     // Ignore errors if unable to close the browser
                 }
-                Assert.AreEqual("", VerificationErrors.ToString());
+               
             }
 
         }

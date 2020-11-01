@@ -36,6 +36,29 @@ namespace addressbook_web_tests
             ReturnToHomePage();
             return this;
         }
+        public ContactHelper Modify(int q, ContactData newData)
+        {
+            manager.Navigator.GoToHomePage();
+            SelectContact(q);
+            InitContactModification();
+            FillContactForm(newData);
+            SubmitContactModification();
+            ReturnToHomePage();
+            return this;
+        }
+
+        public ContactHelper SubmitContactModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
+        public ContactHelper InitContactModification()
+        {
+            driver.FindElement(By.XPath("(//img[@alt='Edit'])[2]")).Click();
+            return this;
+        }
+
         public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
@@ -51,7 +74,6 @@ namespace addressbook_web_tests
             driver.FindElement(By.Name("lastname")).Click();
             driver.FindElement(By.Name("lastname")).Clear();
             driver.FindElement(By.Name("lastname")).SendKeys(group.Lastname);
-            driver.FindElement(By.Name("theform")).Click();
             driver.FindElement(By.Name("address")).Click();
             driver.FindElement(By.Name("address")).Clear();
             driver.FindElement(By.Name("address")).SendKeys(group.Address);
