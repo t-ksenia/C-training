@@ -99,14 +99,11 @@ namespace addressbook_web_tests
         public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
-            Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
+            manager.CloseAlertAndGetItsText();
             return this;
         }
 
-        private string CloseAlertAndGetItsText()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public ContactHelper ReturnToHomePage()
         {

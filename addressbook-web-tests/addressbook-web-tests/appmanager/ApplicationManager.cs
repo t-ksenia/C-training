@@ -131,6 +131,6 @@ namespace addressbook_web_tests
             }
         }
 
-        public object VerificationErrors { get; private set; }
+        
     }
 }
