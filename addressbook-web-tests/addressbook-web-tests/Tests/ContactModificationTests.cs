@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace addressbook_web_tests.Tests
+namespace addressbook_web_tests
 {
     [TestFixture]
 

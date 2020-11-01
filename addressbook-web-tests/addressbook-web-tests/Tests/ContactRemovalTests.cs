@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-namespace addressbook_web_tests.Tests
+namespace addressbook_web_tests
 {
     public class ContactRemovalTests : TestBase
     {

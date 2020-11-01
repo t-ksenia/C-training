@@ -68,22 +68,22 @@ namespace addressbook_web_tests
 
         public ContactHelper FillContactForm(ContactData group)
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(group.Firstname);
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(group.Lastname);
-            driver.FindElement(By.Name("address")).Click();
-            driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys(group.Address);
-            driver.FindElement(By.Name("home")).Click();
-            driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys(group.Phonehome);
-            driver.FindElement(By.Name("email")).Click();
-            driver.FindElement(By.Name("email")).Clear();
-            driver.FindElement(By.Name("email")).SendKeys(group.Email);
+            
+            Type(By.Name("firstname"), group.Firstname);
+            Type(By.Name("lastname"), group.Lastname);
+            Type(By.Name("address"), group.Address);
+            Type(By.Name("home"), group.Phonehome);
+            Type(By.Name("email"), group.Email);
             return this;
+        }
+
+        public void Type(By locator, string text)
+        {
+            if (text != null)
+            {
+                driver.FindElement(locator).Clear();
+                driver.FindElement(locator).SendKeys(text);
+            }
         }
 
         public ContactHelper InitContactCreation()
