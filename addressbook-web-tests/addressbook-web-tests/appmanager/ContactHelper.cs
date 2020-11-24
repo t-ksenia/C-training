@@ -14,6 +14,8 @@ namespace addressbook_web_tests
 {
     public class ContactHelper : HelperBase
     {
+        public object CreateContact { get; private set; }
+
         public ContactHelper(ApplicationManager manager)
            : base(manager)
         {
@@ -90,12 +92,24 @@ namespace addressbook_web_tests
             return this;
         }
         public ContactHelper RemoveContact()
+
         {
+
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             manager.CloseAlertAndGetItsText();
             return this;
         }
 
+        public void CreateNewContact()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
+            driver.FindElement(By.Name("theform")).Click();
+        }
+
+        public bool IsContactCreated()
+        {
+            return IsElementPresent(By.Name("Edit"));
+        }
         
 
         public ContactHelper ReturnToHomePage()
@@ -105,5 +119,8 @@ namespace addressbook_web_tests
         }
     }
 }
+
+  
+
 
         

@@ -12,6 +12,7 @@ namespace addressbook_web_tests
     {
         
         [Test]
+
         public void GroupCreationTest()
         {
             GroupData group = new GroupData("aaa");

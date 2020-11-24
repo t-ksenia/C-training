@@ -53,10 +53,11 @@ namespace addressbook_web_tests
         public GroupHelper InitGroupCreation()
         {
 
-            driver.FindElement(By.XPath("(//input[@name='new'])[2]")).Click();
+            driver.FindElement(By.Name("new")).Click();
             return this;
         }
         public GroupHelper FillGroupForm(GroupData group)
+
         {
            
             Type(By.Name("group_name"), group.Name);
