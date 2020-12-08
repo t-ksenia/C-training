@@ -17,11 +17,11 @@ namespace addressbook_web_tests
         public void ContactCreationtests()
         {
            
-            ContactData group = new ContactData("Firstname", "Lastname");
-            group.Address = "London, Baker st, 221b";
-            group.Phonehome = "1234567890";
-            group.Email = "Sh.H@qwe.com";
-            app.Contacts.Create(group);
+            ContactData contact = new ContactData("Firstname", "Lastname");
+            contact.Address = "London, Baker st, 221b";
+            contact.Phonehome = "1234567890";
+            contact.Email = "Sh.H@qwe.com";
+            app.Contacts.Create(contact);
         }
 
         

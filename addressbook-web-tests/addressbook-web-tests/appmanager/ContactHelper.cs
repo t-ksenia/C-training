@@ -21,11 +21,11 @@ namespace addressbook_web_tests
         {
         }
 
-        public ContactHelper Create(ContactData group)
+        public ContactHelper Create(ContactData contact)
         {
             manager.Navigator.GoToAddNewContact();
             InitContactCreation();
-            FillContactForm(group);
+            FillContactForm(contact);
             SubmitContactCreation();
             manager.Navigator.GoToHomePage();
             return this;
@@ -68,14 +68,14 @@ namespace addressbook_web_tests
         }
 
 
-        public ContactHelper FillContactForm(ContactData group)
+        public ContactHelper FillContactForm(ContactData contact)
         {
             
-            Type(By.Name("firstname"), group.Firstname);
-            Type(By.Name("lastname"), group.Lastname);
-            Type(By.Name("address"), group.Address);
-            Type(By.Name("home"), group.Phonehome);
-            Type(By.Name("email"), group.Email);
+            Type(By.Name("firstname"), contact.Firstname);
+            Type(By.Name("lastname"), contact.Lastname);
+            Type(By.Name("address"), contact.Address);
+            Type(By.Name("home"), contact.Phonehome);
+            Type(By.Name("email"), contact.Email);
             return this;
         }
 
