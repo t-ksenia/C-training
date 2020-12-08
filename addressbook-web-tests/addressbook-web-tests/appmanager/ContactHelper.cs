@@ -30,6 +30,9 @@ namespace addressbook_web_tests
             manager.Navigator.GoToHomePage();
             return this;
         }
+
+        
+
         public ContactHelper Remove(int q)
         {
             manager.Navigator.GoToHomePage();
@@ -52,6 +55,7 @@ namespace addressbook_web_tests
         public ContactHelper SubmitContactModification()
         {
             driver.FindElement(By.Name("update")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -64,6 +68,7 @@ namespace addressbook_web_tests
         public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -88,7 +93,7 @@ namespace addressbook_web_tests
         }
         public ContactHelper SelectContact(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index + 1) + "]")).Click();
             return this;
         }
         public ContactHelper RemoveContact()
@@ -96,6 +101,7 @@ namespace addressbook_web_tests
         {
 
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            contactCache = null;
             manager.CloseAlertAndGetItsText();
             return this;
         }
@@ -117,8 +123,34 @@ namespace addressbook_web_tests
             driver.FindElement(By.LinkText("home")).Click();
             return this;
         }
+
+        private List<ContactData> contactCache = null; 
+
+        public List<ContactData> GetContactList()
+        {
+            if (contactCache == null)
+            {
+                contactCache = new List<ContactData>();
+                manager.Navigator.GoToHomePage();
+                ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("td.center"));
+                foreach (IWebElement element in elements)
+                {
+                    contactCache.Add(new ContactData(element.Text));
+                }
+            }
+
+            return new List<ContactData>(contactCache);
+
+        }
+
+        public int GetContactCount()
+        {
+            return driver.FindElements(By.CssSelector("td.center")).Count;
+        }
     }
-}
+
+    }
+
 
   
 
