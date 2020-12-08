@@ -79,17 +79,16 @@ namespace addressbook_web_tests
         {
 
             driver.FindElement(By.LinkText("group page")).Click();
-            driver.FindElement(By.LinkText("Logout")).Click();
             return this;
         }
         public GroupHelper Selectgroup(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index +1) + "]")).Click();
             return this;
         }
         public GroupHelper RemoveGroup()
         {
-            driver.FindElement(By.XPath("(//input[@name='delete'])[2]")).Click();
+            driver.FindElement(By.Name("delete")).Click();
             return this;
         }
         public GroupHelper SubmitGroupModification()

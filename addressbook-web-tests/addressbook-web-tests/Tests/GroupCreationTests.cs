@@ -30,7 +30,8 @@ namespace addressbook_web_tests
 
         }
         [Test]
-        public void EmptyGroupCreationTest()
+
+        public void EmptyCreationTest()
         {
             GroupData group = new GroupData("");
             group.Header = "";
@@ -42,6 +43,7 @@ namespace addressbook_web_tests
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
             Assert.AreEqual(oldGroups.Count + 1, newGroups.Count);
+
 
         }
     }
